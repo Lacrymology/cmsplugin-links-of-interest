@@ -12,13 +12,13 @@ class CMSLinksOfInterestPlugin(CMSPluginBase):
     """
     model = LinksOfInterestPlugin
     name = _('Links of Interest')
-    render_template = "plugins/links_of_interest.html"
+    render_template = "links_of_interest/links_list.html"
     
     def render(self, context, instance, placeholder):
         """
         Render the latest entries
         """
-        placeholder = instance.page.placeholders.get(
+        placeholder = instance.links_page.placeholders.get(
             slot=instance.placeholder_name)
         links = get_plugins(context["request"], placeholder).filter(
             plugin_type="LinkPlugin")
@@ -32,4 +32,4 @@ class CMSLinksOfInterestPlugin(CMSPluginBase):
                 })
         return context
 
-plugin_pool.register_plugin(CMSFirstLinksPlugin)
+plugin_pool.register_plugin(CMSLinksOfInterestPlugin)
