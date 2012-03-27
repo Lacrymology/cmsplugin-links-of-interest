@@ -3,7 +3,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='cmsplugin-links-of-interest'
+    name='cmsplugin-links-of-interest',
     version='0.1',
     author='Tomas Neme',
     author_email='lacrymology@gmail.com',
